@@ -1,7 +1,8 @@
 const container = document.querySelector("#container");
+const createPadBtn = document.querySelector("#create-pad-btn");
 
 function createGrid(limit){
-    if(limit > 100 || limit < 16) {
+    if(limit > 100 || limit < 16 || isNaN(limit)){
         alert("Choose the number in range 16-100");
     }
     else{
@@ -27,4 +28,8 @@ function createGrid(limit){
     }
 }
 
-createGrid(50);
+createPadBtn.addEventListener("click", () => {
+    container.innerHTML = "";
+    let dimension = prompt("Give the nubmer in range 16-100");
+    createGrid(dimension);
+});

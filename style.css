@@ -1,5 +1,5 @@
 body{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,7 +14,17 @@ body{
 #container{
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(128, 128, 128);;
+    border: 1px solid rgb(128, 128, 128);
+}
+button{
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    background-color: rgba(255, 215, 0);
+    &:hover{
+        background-color: rgba(255, 255, 0);
+    }
 }
 .rows {
     display: flex;
