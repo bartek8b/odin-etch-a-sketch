@@ -5,12 +5,19 @@ body{
     min-height: 100dvh;
     min-width: 100dvw;
     background-color: rgba(255, 255, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #container{
     display: flex;
     flex-direction: column;
 }
-#container > div {
-    border: 1px solid black;
-    height: 10px;
+.rows {
+    height: 20px;
+    display: flex;
+}
+.cells {
+    border: 1px solid rgb(128, 128, 128);
+    width: 20px;
 }
