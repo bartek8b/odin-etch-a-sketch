@@ -19,7 +19,12 @@ function createGrid(limit){
                 cell.classList.add("cells");
             }
         }
+        const cells = document.querySelectorAll(".cells");
+
+        cells.forEach(
+            cell => cell.addEventListener("mouseenter", () => cell.style.backgroundColor = "black"));
+
     }
 }
 
-createGrid(25);
+createGrid(50);
