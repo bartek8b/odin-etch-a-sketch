@@ -9,13 +9,28 @@ function createGrid(limit){
         for(let i = 1; i <= limit; i++){
 
             const row = document.createElement("div");
-            row.style.height = `${(window.innerHeight * 0.7) / limit}px`
+
+            if(window.innerWidth > window.innerHeight){
+                row.style.height = `${(window.innerHeight * 0.7) / limit}px`;
+            }
+            else{
+                row.style.height = `${(window.innerWidth * 0.9) / limit}px`;
+            }
+            
             container.appendChild(row);
             row.classList.add("rows");
 
             for(let i = 1; i <= limit; i++){
+
                 const cell = document.createElement("div");
-                cell.style.width = `${(window.innerHeight * 0.7) / limit}px`;
+
+                if(window.innerWidth > window.innerHeight){
+                    cell.style.width = `${(window.innerHeight * 0.7) / limit}px`;
+                }
+                else{
+                    cell.style.width = `${(window.innerWidth * 0.9) / limit}px`;
+                }
+                
                 row.appendChild(cell);
                 cell.classList.add("cells");
             }
