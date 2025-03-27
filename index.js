@@ -78,7 +78,7 @@ function createGrid(limit, mode){
                         cell.style.backgroundColor = "black";
                         const cellComputedStyle = window.getComputedStyle(cell);
                         let cellOpacity = parseFloat(cellComputedStyle.opacity);
-                        cellOpacity = cellOpacity + 0.1;
+                        cellOpacity = cellOpacity + 0.2;
                         cell.style.opacity = cellOpacity;               
                     }));
         }
