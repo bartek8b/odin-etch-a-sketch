@@ -1,7 +1,9 @@
 const container = document.querySelector("#container");
-const createPadBtn = document.querySelector("#create-pad-btn");
+const createBlackBtn = document.querySelector("#create-black-btn");
+const createGrayBtn = document.querySelector("#create-gray-btn");
+const createColorfulBtn = document.querySelector("#create-colorful-btn");
 
-function createGrid(limit){
+function createGrid(limit, mode){
     if(limit > 100 || limit < 16 || isNaN(limit)){
         alert("Choose the number in range 16-100");
     }
@@ -61,45 +63,57 @@ function createGrid(limit){
                 }
             }));
 
-        // BLACK MODE
-
-        // cells.forEach(
-        //     cell => cell.addEventListener("mouseenter", () => 
-        //         {
-        //             cell.style.opacity = 1;
-        //             cell.style.backgroundColor = "black"
-        //         }));
-
-        //GRAY SCALE MODE
-
-        cells.forEach(
-            cell => cell.addEventListener("mouseenter", () => 
+        if(mode === "black"){
+            cells.forEach(
+                cell => cell.addEventListener("mouseenter", () => 
+                    {
+                        cell.style.opacity = 1;
+                        cell.style.backgroundColor = "black"
+                    }));
+        }
+        else if(mode === "gray"){
+            cells.forEach(
+                cell => cell.addEventListener("mouseenter", () => 
+                    {
+                        cell.style.backgroundColor = "black";
+                        const cellComputedStyle = window.getComputedStyle(cell);
+                        let cellOpacity = parseFloat(cellComputedStyle.opacity);
+                        cellOpacity = cellOpacity + 0.1;
+                        cell.style.opacity = cellOpacity;               
+                    }));
+        }
+        else if(mode === "colorful"){
+            cells.forEach(
+                cell => cell.addEventListener("mouseenter", () => 
                 {
-                    cell.style.backgroundColor = "black";
-                    const cellComputedStyle = window.getComputedStyle(cell);
-                    let cellOpacity = parseFloat(cellComputedStyle.opacity);
-                    cellOpacity = cellOpacity + 0.1;
-                    cell.style.opacity = cellOpacity;               
-                }));
-                
-        // COLORFUL MODE
+                    cell.style.opacity = 1;
+                    let randomR = Math.floor(Math.random() * 256);
+                    let randomG = Math.floor(Math.random() * 256);
+                    let randomB = Math.floor(Math.random() * 256);
+    
+                    cell.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+                }
+                    ));
+        }
 
-        // cells.forEach(
-        //     cell => cell.addEventListener("mouseenter", () => 
-        //     {
-        //         cell.style.opacity = 1;
-        //         let randomR = Math.floor(Math.random() * 256);
-        //         let randomG = Math.floor(Math.random() * 256);
-        //         let randomB = Math.floor(Math.random() * 256);
-
-        //         cell.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
-        //     }
-        //         ));
+        
     }
 }
 
-createPadBtn.addEventListener("click", () => {
+createBlackBtn.addEventListener("click", () => {
     container.innerHTML = "";
     let dimension = prompt("Give the nubmer in range 16-100");
-    createGrid(dimension);
+    createGrid(dimension, "black");
+});
+
+createGrayBtn.addEventListener("click", () => {
+    container.innerHTML = "";
+    let dimension = prompt("Give the nubmer in range 16-100");
+    createGrid(dimension, "gray");
+});
+
+createColorfulBtn.addEventListener("click", () => {
+    container.innerHTML = "";
+    let dimension = prompt("Give the nubmer in range 16-100");
+    createGrid(dimension, "colorful");
 });
