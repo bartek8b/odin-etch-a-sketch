@@ -51,9 +51,6 @@ function createGrid(limit){
                 }));        
 
         cells.forEach(
-            cell => cell.addEventListener("mouseenter", () => cell.style.backgroundColor = "black"));
-
-        cells.forEach(
             cell => window.addEventListener("resize", () => 
             {
                 if(window.innerWidth > window.innerHeight){
@@ -63,6 +60,20 @@ function createGrid(limit){
                     cell.style.width = `${(window.innerWidth * 0.9) / limit}px`;
                 }
             }));
+
+        // cells.forEach(
+        //     cell => cell.addEventListener("mouseenter", () => cell.style.backgroundColor = "black"));
+
+        cells.forEach(
+            cell => cell.addEventListener("mouseenter", () => 
+            {
+                let randomR = Math.floor(Math.random() * 256);
+                let randomG = Math.floor(Math.random() * 256);
+                let randomB = Math.floor(Math.random() * 256);
+
+                cell.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;           
+            }
+                ));
     }
 }
 
