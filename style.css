@@ -15,12 +15,14 @@ body{
     display: flex;
     flex-direction: column;
     border: 1px solid rgb(128, 128, 128);
+    background-color: rgba(211, 211, 211, 0.3)
 }
 button{
     border: none;
     padding: 1rem;
     border-radius: 8px;
     font-size: 1.1rem;
+    cursor: pointer;
     background-color: rgba(255, 215, 0);
     &:hover{
         background-color: rgba(255, 255, 0);
@@ -30,5 +32,5 @@ button{
     display: flex;
 }
 .cells {
-    
+    border-radius: 0.2rem;
 }
