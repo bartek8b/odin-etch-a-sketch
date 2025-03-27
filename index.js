@@ -61,19 +61,40 @@ function createGrid(limit){
                 }
             }));
 
+        // BLACK MODE
+
         // cells.forEach(
-        //     cell => cell.addEventListener("mouseenter", () => cell.style.backgroundColor = "black"));
+        //     cell => cell.addEventListener("mouseenter", () => 
+        //         {
+        //             cell.style.opacity = 1;
+        //             cell.style.backgroundColor = "black"
+        //         }));
+
+        //GRAY SCALE MODE
 
         cells.forEach(
             cell => cell.addEventListener("mouseenter", () => 
-            {
-                let randomR = Math.floor(Math.random() * 256);
-                let randomG = Math.floor(Math.random() * 256);
-                let randomB = Math.floor(Math.random() * 256);
+                {
+                    cell.style.backgroundColor = "black";
+                    const cellComputedStyle = window.getComputedStyle(cell);
+                    let cellOpacity = parseFloat(cellComputedStyle.opacity);
+                    cellOpacity = cellOpacity + 0.1;
+                    cell.style.opacity = cellOpacity;               
+                }));
+                
+        // COLORFUL MODE
 
-                cell.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;           
-            }
-                ));
+        // cells.forEach(
+        //     cell => cell.addEventListener("mouseenter", () => 
+        //     {
+        //         cell.style.opacity = 1;
+        //         let randomR = Math.floor(Math.random() * 256);
+        //         let randomG = Math.floor(Math.random() * 256);
+        //         let randomB = Math.floor(Math.random() * 256);
+
+        //         cell.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+        //     }
+        //         ));
     }
 }
 

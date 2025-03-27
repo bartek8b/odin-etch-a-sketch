@@ -33,4 +33,5 @@ button{
 }
 .cells {
     border-radius: 0.2rem;
+    opacity: 0;
 }
