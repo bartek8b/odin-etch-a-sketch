@@ -35,8 +35,20 @@ function createGrid(limit){
                 cell.classList.add("cells");
             }
         }
-        const cells = document.querySelectorAll(".cells");
+
         const rows = document.querySelectorAll(".rows");
+        const cells = document.querySelectorAll(".cells");
+
+        rows.forEach(
+            row => window.addEventListener("resize", () => 
+            {
+                if(window.innerWidth > window.innerHeight){
+                    row.style.height = `${(window.innerHeight * 0.7) / limit}px`;
+                }
+                else{
+                    row.style.height = `${(window.innerWidth * 0.9) / limit}px`;
+                }
+                }));        
 
         cells.forEach(
             cell => cell.addEventListener("mouseenter", () => cell.style.backgroundColor = "black"));
@@ -51,18 +63,6 @@ function createGrid(limit){
                     cell.style.width = `${(window.innerWidth * 0.9) / limit}px`;
                 }
             }));
-
-            rows.forEach(
-                row => window.addEventListener("resize", () => 
-                {
-                    if(window.innerWidth > window.innerHeight){
-                        row.style.height = `${(window.innerHeight * 0.7) / limit}px`;
-                    }
-                    else{
-                        row.style.height = `${(window.innerWidth * 0.9) / limit}px`;
-                    }
-                }));
-
     }
 }
 
