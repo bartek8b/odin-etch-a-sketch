@@ -39,6 +39,7 @@ button{
 .cells {
     border-radius: 0.2rem;
     opacity: 0;
+    touch-action: none;
 }
 body > a {
     align-self: flex-end;
