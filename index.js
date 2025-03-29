@@ -63,37 +63,45 @@ function createGrid(limit, mode){
                 }
             }));
 
+        function handleBlack(event) {
+            const cell = event.target;
+            cell.style.opacity = 1;
+            cell.style.backgroundColor = "black";
+            }
+        function handleGray(event) {
+            const cell = event.target;
+            cell.style.backgroundColor = "black";
+            const cellComputedStyle = window.getComputedStyle(cell);
+            let cellOpacity = parseFloat(cellComputedStyle.opacity);
+            cellOpacity = cellOpacity + 0.2;
+            cell.style.opacity = cellOpacity; 
+            }
+        function handleColorful(event) {
+            const cell = event.target;
+            cell.style.opacity = 1;
+            let randomR = Math.floor(Math.random() * 256);
+            let randomG = Math.floor(Math.random() * 256);
+            let randomB = Math.floor(Math.random() * 256);
+    
+            cell.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`; 
+            }
+
         if(mode === "black"){
             cells.forEach(
-                cell => cell.addEventListener("mouseenter", () => 
-                    {
-                        cell.style.opacity = 1;
-                        cell.style.backgroundColor = "black"
-                    }));
+                cell => cell.addEventListener("mouseenter", handleBlack),
+                cell => cell.addEventListener("touchstart", handleBlack))
+                
         }
         else if(mode === "gray"){
             cells.forEach(
-                cell => cell.addEventListener("mouseenter", () => 
-                    {
-                        cell.style.backgroundColor = "black";
-                        const cellComputedStyle = window.getComputedStyle(cell);
-                        let cellOpacity = parseFloat(cellComputedStyle.opacity);
-                        cellOpacity = cellOpacity + 0.2;
-                        cell.style.opacity = cellOpacity;               
-                    }));
+                cell => cell.addEventListener("mouseenter", handleGray),
+                cell => cell.addEventListener("touchstart", handleGray))
+                
         }
         else if(mode === "colorful"){
             cells.forEach(
-                cell => cell.addEventListener("mouseenter", () => 
-                {
-                    cell.style.opacity = 1;
-                    let randomR = Math.floor(Math.random() * 256);
-                    let randomG = Math.floor(Math.random() * 256);
-                    let randomB = Math.floor(Math.random() * 256);
-    
-                    cell.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
-                }
-                    ));
+                cell => cell.addEventListener("mouseenter", handleColorful),
+                cell => cell.addEventListener("touchstart", handleColorful))
         }
 
         
