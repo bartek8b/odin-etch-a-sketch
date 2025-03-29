@@ -88,17 +88,23 @@ function createGrid(limit, mode){
 
         if(mode === "black"){
             cells.forEach(
-                cell => cell.addEventListener("mouseenter", handleBlack))
+                cell => cell.addEventListener("mouseenter", handleBlack),
+                cell => cell.addEventListener("touchstart", handleBlack),
+                cell => cell.addEventListener("touchmove", handleBlack))
                 
         }
         else if(mode === "gray"){
             cells.forEach(
-                cell => cell.addEventListener("mouseenter", handleGray))
+                cell => cell.addEventListener("mouseenter", handleGray),
+                cell => cell.addEventListener("touchstart", handleGray),
+                cell => cell.addEventListener("touchmove", handleGray))
                 
         }
         else if(mode === "colorful"){
             cells.forEach(
-                cell => cell.addEventListener("mouseenter", handleColorful))
+                cell => cell.addEventListener("mouseenter", handleColorful),
+                cell => cell.addEventListener("touchstart", handleColorful),
+                cell => cell.addEventListener("touchmove", handleColorful))
         }
 
         
