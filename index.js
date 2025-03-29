@@ -102,18 +102,20 @@ function createGrid(limit, mode){
 
 createBlackBtn.addEventListener("click", () => {
     container.innerHTML = "";
-    let dimension = prompt("Give the nubmer in range 16-100");
+    let dimension = prompt("Specify pad size (16-100)");
     createGrid(dimension, "black");
 });
 
 createGrayBtn.addEventListener("click", () => {
     container.innerHTML = "";
-    let dimension = prompt("Give the nubmer in range 16-100");
+    let dimension = prompt("Specify pad size (16-100)");
     createGrid(dimension, "gray");
 });
 
 createColorfulBtn.addEventListener("click", () => {
     container.innerHTML = "";
-    let dimension = prompt("Give the nubmer in range 16-100");
+    let dimension = prompt("Specify pad size (16-100)");
     createGrid(dimension, "colorful");
 });
+
+document.addEventListener("DOMContentLoaded", createGrid(16, "black"));
