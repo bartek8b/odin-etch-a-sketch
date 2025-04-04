@@ -67,7 +67,6 @@ function createGrid(limit, mode){
             const cell = event.target;
             cell.style.opacity = 1;
             cell.style.backgroundColor = "black";
-            console.log("backgroundChange")
             }
         function handleGray(event) {
             const cell = event.target;
@@ -89,9 +88,7 @@ function createGrid(limit, mode){
 
         if(mode === "black"){
             cells.forEach(
-                cell => cell.addEventListener("mouseenter", handleBlack),
-                cell => cell.addEventListener("touchstart", handleBlack),
-                cell => cell.addEventListener("touchmove", handleBlack))
+                cell => cell.addEventListener("mouseenter", handleBlack))
                 
         }
         else if(mode === "gray"){
